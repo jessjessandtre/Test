@@ -52,7 +52,7 @@
 */
     NSDictionary *headers = @{@"X-Mashape-Key": @"bDFDdHh6CemshpkK2tehTFhkbAihp1Av2PujsnlUl5k1oLKFvn", @"Accept": @"application/json"};
     UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
-        [request setUrl:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1"];
+        [request setUrl:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=20"];
         [request setHeaders:headers];
         completion(nil, nil);
     }] asJsonAsync:^(UNIHTTPJsonResponse *response, NSError *error) {
@@ -62,15 +62,17 @@
         NSData *rawBody = response.rawBody;
         
         NSLog(@"%@", body.object[@"recipes"]);
+        NSArray* a = body.object[@"recipes"];
+        NSLog(@"%d", a.count);
       //  NSLog(@"%@", [body.object[@"recipes"][0] class]);
-
+/*
         NSLog(@"%@", body.object[@"recipes"][0][@"title"]);
        NSLog(@"%@", body.object[@"recipes"][0][@"image"]);
         NSLog(@"%@", body.object[@"recipes"][0][@"instructions"]);
         for (NSDictionary* d in body.object[@"recipes"][0][@"extendedIngredients"]){
             NSLog(@"%@", d[@"original"]);
         }
-
+*/
         completion(body.object[@"recipes"], nil);
         
 

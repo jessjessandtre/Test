@@ -8,6 +8,7 @@ target 'Test' do
   # Pods for Test
   pod 'AFNetworking'
   pod 'Unirest'
+  pod 'Parse'
 
   target 'TestTests' do
     inherit! :search_paths
