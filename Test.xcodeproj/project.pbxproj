@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03ABC8B7E960EF97D750B519 /* libPods-TestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AC5EFF224F5F2F22E738EC /* libPods-TestTests.a */; };
+		298132EB20FFAB67003FD11C /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 298132EA20FFAB67003FD11C /* Recipe.m */; };
 		298B3CF020FEB17D008968A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 298B3CEF20FEB17D008968A2 /* AppDelegate.m */; };
 		298B3CF320FEB17D008968A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 298B3CF220FEB17D008968A2 /* ViewController.m */; };
 		298B3CF620FEB17D008968A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 298B3CF420FEB17D008968A2 /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		298132E920FFAB67003FD11C /* Recipe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		298132EA20FFAB67003FD11C /* Recipe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		298B3CEB20FEB17D008968A2 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298B3CEE20FEB17D008968A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		298B3CEF20FEB17D008968A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				298B3CF920FEB17E008968A2 /* LaunchScreen.storyboard */,
 				298B3CFC20FEB17E008968A2 /* Info.plist */,
 				298B3CFD20FEB17E008968A2 /* main.m */,
+				298132E920FFAB67003FD11C /* Recipe.h */,
+				298132EA20FFAB67003FD11C /* Recipe.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				298B3CF320FEB17D008968A2 /* ViewController.m in Sources */,
+				298132EB20FFAB67003FD11C /* Recipe.m in Sources */,
 				298B3D2220FEB1ED008968A2 /* MovieAPIManager.m in Sources */,
 				298B3CFE20FEB17E008968A2 /* main.m in Sources */,
 				298B3CF020FEB17D008968A2 /* AppDelegate.m in Sources */,

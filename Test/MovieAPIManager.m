@@ -17,6 +17,8 @@
 
 #import "MovieAPIManager.h"
 #import <UNIRest.h>
+#import "Recipe.h"
+#import <UIKit/UIKit.h>
 
 
 @implementation MovieAPIManager
@@ -52,7 +54,7 @@
 */
     NSDictionary *headers = @{@"X-Mashape-Key": @"bDFDdHh6CemshpkK2tehTFhkbAihp1Av2PujsnlUl5k1oLKFvn", @"Accept": @"application/json"};
     UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
-        [request setUrl:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=20"];
+        [request setUrl:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1"];
         [request setHeaders:headers];
         completion(nil, nil);
     }] asJsonAsync:^(UNIHTTPJsonResponse *response, NSError *error) {
@@ -61,9 +63,8 @@
         UNIJsonNode *body = response.body;
         NSData *rawBody = response.rawBody;
         
-        NSLog(@"%@", body.object[@"recipes"]);
-        NSArray* a = body.object[@"recipes"];
-        NSLog(@"%d", a.count);
+      //  NSLog(@"%@", body.object[@"recipes"]);
+        
       //  NSLog(@"%@", [body.object[@"recipes"][0] class]);
 /*
         NSLog(@"%@", body.object[@"recipes"][0][@"title"]);
@@ -72,8 +73,47 @@
         for (NSDictionary* d in body.object[@"recipes"][0][@"extendedIngredients"]){
             NSLog(@"%@", d[@"original"]);
         }
+ 
+ 
 */
-        completion(body.object[@"recipes"], nil);
+        for (NSDictionary* r in body.object[@"recipes"]){
+            Recipe* recipe = [Recipe new];
+            recipe.name = r[@"title"];
+            NSMutableArray* ma = [[NSMutableArray alloc] init];
+            for (NSDictionary* ingredient in r[@"extendedIngredients"] ){
+                [ma addObject:ingredient[@"original"]];
+            }
+            recipe.ingredients = [ma copy];
+            recipe.instructions = r[@"instructions"];
+            recipe.numPosts = @0;
+            NSLog(@"recipe created");
+            
+            NSURL *imageURL = [NSURL URLWithString:r[@"image"]];
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // Update the UI
+                    recipe.image = [PFFile fileWithName:@"image.png" data:imageData];
+                    NSLog(@"image set");
+                    [recipe saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                        if (succeeded){
+                            NSLog(@"saved!");
+                            completion(body.object[@"recipes"], nil);
+                        }
+                        else {
+                            NSLog(@"not saved.");
+                        }
+                    }];
+                });
+            });
+            
+            
+            
+        }
+        
+        
         
 
         
