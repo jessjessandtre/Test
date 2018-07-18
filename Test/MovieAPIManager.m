@@ -62,12 +62,11 @@
         NSData *rawBody = response.rawBody;
         
         NSLog(@"%@", body.object[@"recipes"]);
-       // NSLog(@"%@", body.object[@"recipes"][0][@"title"]);
       //  NSLog(@"%@", [body.object[@"recipes"][0] class]);
 
-        NSLog(@"%A", body.object[@"recipes"][@"title"]);
-   //    NSLog(@"%A", body.object[@"recipes"][0][@"image"]);
-  //      NSLog(@"%A", body.object[@"recipes"][@"instructions"]);
+        NSLog(@"%@", body.object[@"recipes"][0][@"title"]);
+       NSLog(@"%@", body.object[@"recipes"][0][@"image"]);
+  //      NSLog(@"%@", body.object[@"recipes"][@"instructions"]);
 //        for (NSDictionary* d in body.object[@"recipes"][@"extendedIngredients"]){
  //           NSLog(@"%@", d[@"original"]);
  //       }
