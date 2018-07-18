@@ -28,10 +28,19 @@
                     </view>
                     <connections>
                         <outlet property="posterView" destination="cSU-s6-MjS" id="wX0-Re-aOG"/>
+                        <segue destination="dds-vV-VOu" kind="show" id="Gi6-qK-Ef3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="0yL-Y0-HVR">
+            <objects>
+                <viewControllerPlaceholder id="dds-vV-VOu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D0S-nG-l2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931" y="24"/>
         </scene>
     </scenes>
 </document>
