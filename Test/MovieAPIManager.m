@@ -66,10 +66,10 @@
 
         NSLog(@"%@", body.object[@"recipes"][0][@"title"]);
        NSLog(@"%@", body.object[@"recipes"][0][@"image"]);
-  //      NSLog(@"%@", body.object[@"recipes"][@"instructions"]);
-//        for (NSDictionary* d in body.object[@"recipes"][@"extendedIngredients"]){
- //           NSLog(@"%@", d[@"original"]);
- //       }
+        NSLog(@"%@", body.object[@"recipes"][0][@"instructions"]);
+        for (NSDictionary* d in body.object[@"recipes"][0][@"extendedIngredients"]){
+            NSLog(@"%@", d[@"original"]);
+        }
 
         completion(body.object[@"recipes"], nil);
         
