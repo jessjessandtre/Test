@@ -14,6 +14,6 @@
 
 -(id) init;
 
--(void) fetchNowPlaying:(void(^)(NSDictionary *recipes, NSError *error))completion;
+-(void) fetchNowPlaying:(void(^)(NSArray *recipes, NSError *error))completion;
 
 @end

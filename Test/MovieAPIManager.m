@@ -27,7 +27,7 @@
     return self;
 }
 
--(void)fetchNowPlaying:(void(^)(NSDictionary *movies, NSError *error))completion {
+-(void)fetchNowPlaying:(void(^)(NSArray *recipes, NSError *error))completion {
 /*    NSURL *url = [NSURL URLWithString:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?X-Mashape-Key=bDFDdHh6CemshpkK2tehTFhkbAihp1Av2PujsnlUl5k1oLKFvn"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){

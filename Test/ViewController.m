@@ -22,14 +22,14 @@
     // Do any additional setup after loading the view, typically from a nib.\
     //MovieAPIManager *manager = [MovieAPIManager new];
     MovieAPIManager *manager = [MovieAPIManager new];
-    [manager fetchNowPlaying:^(NSDictionary *recipes, NSError *error) {
+    [manager fetchNowPlaying:^(NSArray *recipes, NSError *error) {
         
         if (error) {
             NSLog(@"ERROR");
         }
         else if (recipes)
         {
-            NSString *baseURLString = @"https://spoonacular.com/recipeImages/624788-556x370.jpg";
+            NSString *baseURLString = recipes[0][@"image"];
             NSURL *posterURL  = [NSURL URLWithString:baseURLString];
             [self.posterView setImageWithURL:posterURL];
         }
