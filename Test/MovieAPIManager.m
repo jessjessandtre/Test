@@ -54,7 +54,7 @@
 */
     NSDictionary *headers = @{@"X-Mashape-Key": @"bDFDdHh6CemshpkK2tehTFhkbAihp1Av2PujsnlUl5k1oLKFvn", @"Accept": @"application/json"};
     UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
-        [request setUrl:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1"];
+        [request setUrl:@"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=30"];
         [request setHeaders:headers];
         completion(nil, nil);
     }] asJsonAsync:^(UNIHTTPJsonResponse *response, NSError *error) {
@@ -86,6 +86,7 @@
             recipe.ingredients = [ma copy];
             recipe.instructions = r[@"instructions"];
             recipe.numPosts = @0;
+            recipe.sourceURL = r[@"sourceUrl"];
             NSLog(@"recipe created");
             
             NSURL *imageURL = [NSURL URLWithString:r[@"image"]];
