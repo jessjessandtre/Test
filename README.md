@@ -1,3 +1,3 @@
 # Test
 
-quick and dirty code to retrieve recipes from [Spoonacular Recipes API](https://docs.parseplatform.org/ios/guide/#relational-queries) and send them to Parse server
+quick and dirty code to retrieve recipes from [Spoonacular Recipes API](https://spoonacular.com/api/docs/recipes-api) and send them to Parse server
